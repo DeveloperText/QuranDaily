@@ -1,0 +1,228 @@
+$main: #3d84a8;
+$dark: #48466d;
+$white: #fff;
+$grey: #46cdcf;
+$pulse: $main;
+
+
+* {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: $dark;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3rem;
+    // background-color: #f3f3f3;
+    background-image: url("/bg.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    mix-blend-mode: lighten;
+    flex-direction: column;
+
+    blockquote {
+        background-color: $white;
+        padding: 1.5rem 2rem;
+        border-radius: 1rem;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 10px 50px 10px rgba($color: $white, $alpha: .33);
+        max-width: 1000px;
+        margin-bottom: 1rem;
+        margin-top: calc(100vh / 10);
+
+        .logo {
+            position: absolute;
+            height: 5rem;
+            width: 5rem;
+            border-radius: 50%;
+
+            background-color: $white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.33rem;
+            top: 0;
+            left: 0;
+            transform: translate(-20%, -70%);
+            box-shadow: 0 10px 100px 5px rgba($color: $white, $alpha: .33);
+            color: $dark;
+
+            i {
+                text-align: center;
+                cursor: pointer;
+                color: $white;
+                padding: 1rem;
+                border-radius: 50%;
+                transform: scale(1);
+                transition: .5s background-color;
+                animation: pulse 2s infinite;
+                background-color: $pulse;
+                
+
+                &.fa-pause {
+                    background-color: #48466d!important;
+                    animation: pulse_active 2s infinite;
+                }
+            }
+        }
+
+        .content {
+            // background-color: #333;
+            color: $dark;
+            word-spacing: 2px;
+            font-size: 1.33rem;
+
+
+            &.en {
+                font-family: 'Poppins', sans-serif;
+                padding: 2rem;
+            }
+
+            &.bn {
+                font-family: 'Hind Siliguri', sans-serif;
+                font-size: 1.5rem;
+                word-spacing: 3px;
+                padding: 2rem;
+            }
+
+            &.ar {
+                font-family: 'Tajawal', sans-serif;
+                padding: 2rem;
+            }
+
+
+            .verse {
+                // background-color: #333;
+                // color: #fff;
+                padding: 1rem;
+                font-size: 2rem;
+                color: $main;
+                line-height: 2;
+                font-weight: bolder;
+                cursor: none;
+                user-select: none;
+                font-family: 'Tajawal', sans-serif;
+                // span {
+                //     font-family: 'Tajawal', sans-serif;
+                //     padding: .63rem;
+                //     border-radius: .33rem;
+                //     transition: .3s background-color;
+
+                //     &.active {
+                //         background-color: rgba($dark, .1);
+                //     }
+                // }
+            }
+
+            .reference {
+                padding-top: 2rem;
+                color: $main;
+                font-weight: 500;
+                display: block;
+
+                &::before {
+                    content: '-';
+                    font-weight: lighter;
+                }
+
+
+            }
+        }
+    }
+
+    .particles-js-canvas-el {
+        position: absolute;
+        z-index: -1;
+    }
+
+
+    .btn-container {
+        padding: 1rem;
+
+        button {
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.3rem;
+            background-color: $main;
+            border-radius: 3rem;
+            color: $white;
+            box-shadow: 0 10px 50px 13px rgba($color: $main, $alpha: .33);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: .2s transform;
+
+            &::before {
+                transition: .3s width;
+                content: '';
+                height: 100px;
+                width: 0px;
+                background-color: $grey;
+                opacity: .23;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &:active {
+
+                transform: scale(1.1);
+            }
+
+            i {
+                font-size: 1rem;
+                padding-left: .5rem;
+
+               
+            }
+
+        }
+
+        &:hover button::before {
+
+            width: 100%;
+        }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.99);
+        box-shadow: 0 0 0 0 rgba($pulse, 0.7);
+    }
+
+    71% {
+        transform: scale(1);
+        box-shadow: 0 0 0 11px rgba($pulse, 0);
+    }
+
+    99% {
+        transform: scale(0.99);
+        box-shadow: 0 0 0 0 rgba($pulse, 0);
+    }
+}
+
+@keyframes pulse_active {
+    0% {
+        transform: scale(0.99);
+        box-shadow: 0 0 0 0 rgba($dark, 0.7);
+    }
+
+    71% {
+        transform: scale(1);
+        box-shadow: 0 0 0 11px rgba($dark, 0);
+    }
+
+    99% {
+        transform: scale(0.99);
+        box-shadow: 0 0 0 0 rgba($dark, 0);
+    }
+}
