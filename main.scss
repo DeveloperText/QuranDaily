@@ -26,6 +26,7 @@ body {
     background-repeat: no-repeat;
     mix-blend-mode: lighten;
     flex-direction: column;
+    position: relative;
 
     blockquote {
         background-color: $white;
@@ -65,10 +66,10 @@ body {
                 transition: .5s background-color;
                 animation: pulse 2s infinite;
                 background-color: $pulse;
-                
+
 
                 &.fa-pause {
-                    background-color: #48466d!important;
+                    background-color: #48466d !important;
                     animation: pulse_active 2s infinite;
                 }
             }
@@ -181,7 +182,7 @@ body {
                 font-size: 1rem;
                 padding-left: .5rem;
 
-               
+
             }
 
         }
@@ -191,7 +192,62 @@ body {
             width: 100%;
         }
     }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
+        // background-color: $dark;
+        i {
+            float: left;
+            padding: 1rem 1.5rem;
+            font-size: 2rem;
+            color: $white;
+            border-radius: 50%;
+            cursor: pointer;
+            // box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
+            //     inset 4px 4px 6px rgba(0, 0, 0, 0.2);
+            color: $white;
+            text-shadow: 0 0 15px $main, 0 0 25px $dark;
+            animation: glow 5s linear infinite;
+            transition: .3s;
+            margin-bottom: 1.5rem;
+
+            &:hover {
+                text-shadow: 0 0 15px $main, 0 0 25px $grey;
+                animation: glow_hover 4s linear infinite;
+            }
+        }
+
+
+    }
 }
+
+@keyframes glow {
+    0% {
+        filter: hue-rotate(0deg);
+
+    }
+
+    100% {
+        filter: hue-rotate(99deg);
+
+    }
+}
+
+
+@keyframes glow_hover {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+
 
 @keyframes pulse {
     0% {
