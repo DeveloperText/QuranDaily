@@ -11,7 +11,8 @@ $pulse: $main;
 }
 
 body {
-    background-color: $dark;
+    background: $dark;
+    background: linear-gradient(63deg, $dark 33%, $main 99%);
 }
 
 .container {
@@ -20,11 +21,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0 3rem;
-    // background-color: #f3f3f3;
-    background-image: url("/bg.jpg");
-    background-size: auto;
-    background-repeat: no-repeat;
-    mix-blend-mode: lighten;
     flex-direction: column;
     position: relative;
 
@@ -34,7 +30,7 @@ body {
         border-radius: 1rem;
         text-align: center;
         position: relative;
-        box-shadow: 0 10px 50px 10px rgba($color: $white, $alpha: .33);
+        box-shadow: 0 11px 63px 11px rgba($color: $white, $alpha: .33);
         max-width: 1000px;
         margin-bottom: 1rem;
         margin-top: calc(100vh / 10);
@@ -62,9 +58,9 @@ body {
                 color: $white;
                 padding: 1rem;
                 border-radius: 50%;
-                transform: scale(1);
+            
                 transition: .5s background-color;
-                animation: pulse 2s infinite;
+                animation: pulse 1.99s infinite;
                 background-color: $pulse;
 
 
@@ -76,7 +72,7 @@ body {
         }
 
         .content {
-            // background-color: #333;
+            
             color: $dark;
             word-spacing: 2px;
             font-size: 1.33rem;
@@ -101,8 +97,6 @@ body {
 
 
             .verse {
-                // background-color: #333;
-                // color: #fff;
                 padding: 1rem;
                 font-size: 2rem;
                 color: $main;
@@ -196,28 +190,34 @@ body {
     footer {
         position: absolute;
         bottom: 0;
-        width: 100%;
+        // width: 100%;
+        padding: 1rem;
 
         // background-color: $dark;
-        i {
+        .button {
             float: left;
             padding: 1rem 1.5rem;
-            font-size: 2rem;
+            font-size: 1rem;
+            background-color: $dark;
             color: $white;
-            border-radius: 50%;
             cursor: pointer;
-            // box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
-            //     inset 4px 4px 6px rgba(0, 0, 0, 0.2);
-            color: $white;
-            text-shadow: 0 0 15px $main, 0 0 25px $dark;
-            animation: glow 5s linear infinite;
+            box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
+                inset 4px 4px 6px rgba(0, 0, 0, 0.2);
             transition: .3s;
-            margin-bottom: 1.5rem;
 
-            &:hover {
-                text-shadow: 0 0 15px $main, 0 0 25px $grey;
-                animation: glow_hover 4s linear infinite;
+            &:first-child {
+                border-radius: 3rem 0 0 3rem;
             }
+
+            &:last-child {
+                border-radius: 0 3rem 3rem 0;
+            }
+
+            &.active {
+                background-color: $main;
+                // box-shadow: none
+            }
+
         }
 
 
